@@ -169,3 +169,21 @@ window.addEventListener('DOMContentLoaded', () => {
         showToast('Schicht wiederhergestellt');
     }
 });
+
+// ===== RESET =====
+function resetSchicht() {
+  if (!confirm('Neue Schicht beginnen? Alle Daten werden gelöscht.')) return;
+  deleteState();
+  document.getElementById('beginnForm').style.display = 'block';
+  document.getElementById('schichtAktivBar').style.display = 'none';
+  renderEreignisse();
+  renderStreifen();
+  document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+  document.querySelectorAll('select').forEach(el => el.value = '');
+  document.querySelectorAll('.radio-btn').forEach(b => b.classList.remove('selected'));
+  const now = new Date();
+  document.getElementById('begDatum').value = now.toISOString().slice(0,10);
+  document.getElementById('begUhrzeit').value = now.toTimeString().slice(0,5);
+  showSection('beginn');
+  showToast('🔄 Bereit für neue Schicht');
+}
