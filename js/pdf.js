@@ -17,6 +17,7 @@ function openPdfPreview() {
   const bemerkung = document.getElementById('endBemerkung').value.trim() || 'Keine';
   const endName = document.getElementById('endName').value.trim() || '—';
   const erstellt = new Date().toLocaleString('de-DE');
+  const logoUrl = window.location.origin + '/images/logo.jpg';
 
   let ereignisRows = '';
   if (state.ereignisse.length === 0) {
@@ -83,7 +84,7 @@ function openPdfPreview() {
 
 <div class="header">
   <div class="header-left" style="display:flex;align-items:center;gap:16px">
-  <img src="/images/logo.jpg" alt="Secure Group" style="height:44px;object-fit:contain;filter:brightness(1.1)">
+  <img src="${logoUrl}" alt="Secure Group" style="height:44px;object-fit:contain;filter:brightness(1.1)">
     <div>
       <h1 style="margin:0">WACHBUCH</h1>
       <p style="margin:2px 0 0">SECURE GROUP · WWW.SECURE-GROUP.DE</p>
@@ -93,7 +94,7 @@ function openPdfPreview() {
   <div class="header-right">
     <strong>${objekt}</strong><br>
     Datum: ${datum}<br>
-    Schicht: ${begZeit} – ${endZeit} Uhr<br>
+    Schicht: ${begZeit} - ${endZeit} Uhr<br>
     Schichtführer: ${sf}
   </div>
 </div>
@@ -151,7 +152,7 @@ function openPdfPreview() {
   </div>
 </div>
 
-<script>window.onload = function(){ window.print(); }<\/script>
+<script>window.onload = function(){ window.print(); }</script>
 </body>
 </html>`;
 
