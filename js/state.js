@@ -1,11 +1,10 @@
 // ===== STATE =====
 let state = {
-  schichtAktiv: false,
-  beginnZeit: "",
-  objekt: '',
-  schichtfuehrer: '',
-  ereignisse: [],
-  streifen: []
+    schichtAktiv: false,
+    beginn: {},
+    ereignisse: [],
+    streifen: [],
+    ende: []
 };
 // FUNKTION: Speichern
 function saveToLocalStorage() {
@@ -24,4 +23,17 @@ function loadFromLocalStorage() {
         return true;
     }
     return false;
+}
+
+function deleteState() {
+    localStorage.clear();
+    state.schichtAktiv = false;
+
+    state = {
+        schichtAktiv: false,
+        beginn: [],      
+        ereignisse: [],  
+        streifen: [],
+        ende: []
+    };
 }
